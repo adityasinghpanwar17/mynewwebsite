@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Panwar&Son's - Fashion & Lifestyle E-Commerce</title>
+    <link href="https://storage.googleapis.com/a1aa/image/3c4ae61f-5e2c-488a-0ae7-4c01a72e6be3.jpg" rel="icon" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-poppins bg-white text-gray-900">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a class="flex items-center space-x-2" href="#" id="nav-home">
+                    <img alt="Panwar & Son's logo, stylized P letter in orange and pink gradient" class="h-12 w-12 object-contain" height="48" src="https://storage.googleapis.com/a1aa/image/3c4ae61f-5e2c-488a-0ae7-4c01a72e6be3.jpg" width="48" />
+                    <span class="text-2xl font-bold text-pink-600 select-none">Panwar&Son's</span>
+                </a>
+                <nav class="hidden md:flex space-x-8 font-semibold text-gray-700 items-center" id="desktop-nav-menu">
+                    <a class="hover:text-pink-600 transition cursor-pointer" id="nav-home-desktop">Home</a>
+                    <a class="hover:text-pink-600 transition cursor-pointer" id="nav-shop-desktop">Shop</a>
+                    <a class="hover:text-pink-600 transition cursor-pointer" id="nav-about-desktop">About</a>
+                    <a class="hover:text-pink-600 transition cursor-pointer" id="nav-contact-desktop">Contact</a>
+                    <a class="hover:text-pink-600 transition cursor-pointer hidden" id="nav-admin-desktop">Admin Dashboard</a>
+                </nav>
+                <div class="hidden md:flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-pink-500 mx-4 flex-grow max-w-md">
+                    <input aria-label="Search" class="px-3 py-2 w-full focus:outline-none" id="search-input" placeholder="Search for products, brands and more" type="text" />
+                    <button aria-label="Search" class="px-3 text-pink-600 hover:text-pink-800" id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="user-actions-container">
+                        <button aria-label="User login or register" class="hidden md:flex items-center space-x-1 text-gray-700 hover:text-pink-600 transition cursor-pointer" id="nav-login-desktop">
+                            <i class="fas fa-user"></i><span class="font-semibold">Login / Signup</span>
+                        </button>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-2 cursor-pointer" id="user-avatar-container">
+                        <img alt="User profile photo" class="h-10 w-10 rounded-full object-cover" id="user-avatar" src="" width="40" height="40" />
+                        <span class="font-semibold text-gray-700" id="user-email-display"></span>
+                        <button aria-label="Logout" class="text-pink-600 hover:text-pink-800 transition" id="logout-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                    </div>
+                     <button aria-label="Shopping cart" class="relative text-gray-700 hover:text-pink-600 transition cursor-pointer" id="nav-cart">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold" id="cart-count">0</span>
+                    </button>
+                </div>
+                <button aria-label="Open menu" class="md:hidden text-gray-700 hover:text-pink-600 transition focus:outline-none focus:ring-2 focus:ring-pink-500 rounded" id="mobile-menu-button"><i class="fas fa-bars fa-lg"></i></button>
+            </div>
+        </div>
+        <nav class="hidden md:hidden bg-white border-t border-gray-200" id="mobile-menu">
+            <div class="px-4 pt-4 pb-2 space-y-1 font-semibold text-gray-700">
+                <a class="block py-2 hover:bg-pink-50 hover:text-pink-600 rounded cursor-pointer" id="nav-home-mobile">Home</a>
+                <a class="block py-2 hover:bg-pink-50 hover:text-pink-600 rounded cursor-pointer" id="nav-shop-mobile">Shop</a>
+                <a class="block py-2 hover:bg-pink-50 hover:text-pink-600 rounded cursor-pointer" id="nav-about-mobile">About</a>
+                <a class="block py-2 hover:bg-pink-50 hover:text-pink-600 rounded cursor-pointer" id="nav-contact-mobile">Contact</a>
+                <a class="block py-2 hover:bg-pink-50 hover:text-pink-600 rounded flex items-center space-x-2 cursor-pointer" id="nav-login-mobile">
+                    <i class="fas fa-user"></i><span>Login / Signup</span>
+                </a>
+            </div>
+            <div class="px-4 pb-4">
+                <div class="flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-pink-500">
+                    <input aria-label="Search" class="px-3 py-2 w-full focus:outline-none" id="mobile-search-input" placeholder="Search..." type="text" />
+                    <button aria-label="Search" class="px-3 text-pink-600 hover:text-pink-800" id="mobile-search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-16 min-h-[80vh]" id="main-content"></main>
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <a class="flex items-center space-x-2 mb-4 cursor-pointer select-none" id="footer-logo">
+                    <img alt="Panwar & Son's logo, stylized P letter in orange and pink gradient" class="h-10 w-10 object-contain" height="40" src="https://storage.googleapis.com/a1aa/image/3c4ae61f-5e2c-488a-0ae7-4c01a72e6be3.jpg" width="40" />
+                    <span class="text-white text-xl font-bold">Panwar&Son's</span>
+                </a>
+                <p class="text-gray-400 max-w-xs">Your one-stop destination for the latest fashion and lifestyle products. Shop with confidence and style.</p>
+            </div>
+            <div>
+                <h3 class="text-white font-semibold mb-4">About</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a class="hover:text-pink-500 transition cursor-pointer" id="footer-our-story">Our Story</a></li>
+                    <li><a class="hover:text-pink-500 transition cursor-pointer" id="footer-careers">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-semibold mb-4">Help</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a class="hover:text-pink-500 transition cursor-pointer" id="footer-customer-service">Customer Service</a></li>
+                    <li><a class="hover:text-pink-500 transition cursor-pointer" id="footer-returns">Returns & Refunds</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-6 text-gray-400">
+                    <a aria-label="Facebook" class="hover:text-pink-500 transition" href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a aria-label="Twitter" class="hover:text-pink-500 transition" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a aria-label="Instagram" class="hover:text-pink-500 transition" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 text-center py-4 text-gray-500 text-sm select-none">© 2025 Panwar&Son's. All rights reserved.</div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, onSnapshot, serverTimestamp, doc, deleteDoc, where, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBmvOrvAs1EJAUJJ7E5iG-gQmXWtzqDRxw",
+            authDomain: "e-commerce-29e15.firebaseapp.com",
+            projectId: "e-commerce-29e15",
+            storageBucket: "e-commerce-29e15.appspot.com",
+            messagingSenderId: "429029191252",
+            appId: "1:429029191252:web:d1f866328f38928ee047c1",
+            measurementId: "G-3TV4L14NKC"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const ADMIN_UID = "u11KiXjaIrbrMHgublgzwkRIR4p2"; 
+        
+        let cart = [];
+        let currentUser = null;
+        let allProducts = [];
+        let currentRoute = { page: 'home', params: null };
+
+        const mainContent = document.getElementById('main-content');
+        
+        // --- UTILITY FUNCTIONS ---
+        function formatPrice(price) { return `₹${price.toLocaleString('en-IN')}`; }
+
+        function createStarRating(rating, reviews) {
+            let fullStars = Math.floor(rating);
+            let halfStar = rating - fullStars >= 0.5;
+            let emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            let starsHtml = '';
+            for (let i = 0; i < fullStars; i++) { starsHtml += '<i class="fas fa-star text-yellow-400"></i>'; }
+            if (halfStar) { starsHtml += '<i class="fas fa-star-half-alt text-yellow-400"></i>'; }
+            for (let i = 0; i < emptyStars; i++) { starsHtml += '<i class="far fa-star text-gray-300"></i>'; }
+            if (reviews) {
+                starsHtml += `<span class="text-gray-500 text-xs ml-2">(${reviews} reviews)</span>`;
+            }
+            return starsHtml;
+        }
+
+        function getCategoryImage(category) {
+            const categoryImages = {
+                Men: "https://storage.googleapis.com/a1aa/image/f50ac7c2-9860-4b64-b9d8-4e046377db70.jpg",
+                Women: "https://storage.googleapis.com/a1aa/image/ca7a2178-494a-42db-cfd6-55754bbc6151.jpg",
+                Electronics: "https://storage.googleapis.com/a1aa/image/f342bc1f-abff-43e0-3108-f00da8404186.jpg",
+                Footwear: "https://storage.googleapis.com/a1aa/image/56ba289b-9e94-41ab-e63d-813bdf58f364.jpg",
+                Accessories: "https://storage.googleapis.com/a1aa/image/b4d08e2c-3d3f-47ca-50ac-cb1ddcc8c9a0.jpg",
+                Kids: "https://storage.googleapis.com/a1aa/image/e0f00960-58d0-44d6-5280-938ae48a3efd.jpg",
+            };
+            return categoryImages[category] || "https://placehold.co/300x400/png?text=Category";
+        }
+
+        // --- UI UPDATE FUNCTIONS ---
+        function updateUserDisplay(user) {
+            const loginDesktop = document.getElementById('nav-login-desktop');
+            const avatarContainer = document.getElementById('user-avatar-container');
+            const adminLink = document.getElementById('nav-admin-desktop');
+            
+            if (user) {
+                loginDesktop.style.display = 'none';
+                avatarContainer.style.display = 'flex';
+                document.getElementById('user-avatar').src = user.photoURL || `https://ui-avatars.com/api/?name=${user.email.charAt(0)}&background=random`;
+                document.getElementById('user-email-display').textContent = user.email.split('@')[0];
+                if (user.uid === ADMIN_UID) {
+                    adminLink.classList.remove('hidden');
+                }
+            } else {
+                loginDesktop.style.display = 'flex';
+                avatarContainer.style.display = 'none';
+                adminLink.classList.add('hidden');
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+
+        function toggleMobileMenu(show) {
+            const menu = document.getElementById('mobile-menu');
+            if (show === undefined) {
+                menu.classList.toggle('hidden');
+            } else if (show) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // --- CART LOGIC ---
+        function addToCart(productId, size, color, quantity) {
+            let product = allProducts.find(p => p.id === productId);
+            if (!product) return;
+            const existingIndex = cart.findIndex(item => item.id === productId && item.size === size && item.color === color);
+            if (existingIndex !== -1) {
+                cart[existingIndex].quantity += quantity;
+            } else {
+                cart.push({id: product.id, name: product.name, price: product.price, size, color, quantity, image: product.image, alt: product.alt});
+            }
+            updateCartCount();
+        }
+
+        // --- RENDER FUNCTIONS (PAGES) ---
+        function renderHome() {
+            currentRoute = { page: 'home' };
+            mainContent.innerHTML = `
+                <section class="relative rounded-lg overflow-hidden shadow-lg h-96">
+                    <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover">
+                        <source src="Generate_a_royal_202508171842_j6odf.mp4" type="video/mp4">
+                    </video>
+                    <div class="relative z-10 h-full bg-gradient-to-r from-black/60 to-transparent flex flex-col justify-center px-6 md:px-20">
+                        <h1 class="text-white text-4xl md:text-6xl font-extrabold max-w-xl leading-tight drop-shadow-lg">Discover Your Style</h1>
+                        <p class="mt-4 text-pink-100 text-lg md:text-xl max-w-md drop-shadow-md">Up to 50% off on top brands.</p>
+                        <button id="hero-shop-now" class="mt-6 inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-md shadow-md hover:bg-pink-50 transition w-max cursor-pointer">Shop Now</button>
+                    </div>
+                </section>
+                <section class="mt-12">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Shop by Category</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6" id="category-grid"></div>
+                </section>
+                <section class="mt-16">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Featured Products</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" id="featured-products"></div>
+                </section>
+            `;
+            const categoryContainer = document.getElementById('category-grid');
+            const categories = ["Men", "Women", "Electronics", "Footwear", "Accessories", "Kids"];
+            categoryContainer.innerHTML = categories.map(cat => `
+                <div class="group flex flex-col items-center space-y-2 hover:text-pink-600 transition cursor-pointer category-item" data-category="${cat}">
+                    <img alt="Category: ${cat}" class="rounded-lg object-cover w-28 h-28" height="120" src="${getCategoryImage(cat)}" width="120"/>
+                    <span class="font-medium text-center">${cat}</span>
+                </div>`).join('');
+
+            const featuredContainer = document.getElementById('featured-products');
+            let featuredProducts = allProducts.sort((a,b) => (b.reviews || 0) - (a.reviews || 0)).slice(0, 5);
+            featuredContainer.innerHTML = featuredProducts.map(p => `
+                <article class="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition relative group cursor-pointer product-card" data-id="${p.id}">
+                    <img alt="${p.alt || p.name}" class="w-full h-64 object-cover" src="${p.image}" />
+                    <div class="p-4">
+                        <h3 class="text-gray-900 font-semibold text-lg truncate">${p.name}</h3>
+                        <p class="text-pink-600 font-bold mt-1">${formatPrice(p.price)}</p>
+                        <div class="flex items-center mt-2">${createStarRating(p.rating, p.reviews)}</div>
+                        <button class="mt-4 w-full bg-pink-600 text-white py-2 rounded-md font-semibold hover:bg-pink-700 transition add-to-cart-btn flex justify-center items-center space-x-2" data-id="${p.id}">
+                             <i class="fas fa-cart-plus"></i><span>Add to Cart</span>
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+            attachDynamicListeners();
+        }
+
+        function renderShop(category = null) {
+            currentRoute = { page: 'shop', params: category };
+            const products = category ? allProducts.filter(p => p.category === category) : allProducts;
+            const title = category || "All Products";
+            mainContent.innerHTML = `
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">${title}</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                    ${products.map(p => `
+                        <article class="product-card cursor-pointer border rounded-lg overflow-hidden shadow-sm hover:shadow-lg" data-id="${p.id}">
+                            <img alt="${p.alt || p.name}" class="w-full h-64 object-cover" src="${p.image}"/>
+                            <div class="p-4">
+                                <h3 class="text-gray-800 font-semibold text-base truncate">${p.name}</h3>
+                                <p class="text-pink-600 font-bold mt-1 text-lg">${formatPrice(p.price)}</p>
+                                <div class="flex items-center mt-2">${createStarRating(p.rating, p.reviews)}</div>
+                                <button class="mt-4 w-full bg-pink-600 text-white py-2 rounded-md font-semibold hover:bg-pink-700 transition add-to-cart-btn flex justify-center items-center space-x-2" data-id="${p.id}">
+                                    <i class="fas fa-cart-plus"></i><span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </article>
+                    `).join('')}
+                </div>
+            `;
+            attachDynamicListeners();
+        }
+
+        function renderProduct(productId) {
+            currentRoute = { page: 'product', params: productId };
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) { render404(); return; }
+
+            const sizeOptions = product.sizes && product.sizes.length > 0 ? product.sizes.map(s => `<option value="${s}">${s}</option>`).join('') : '<option value="N/A">N/A</option>';
+            const colorOptions = product.colors && product.colors.length > 0 ? product.colors.map(c => `<option value="${c}">${c}</option>`).join('') : '<option value="N/A">N/A</option>';
+            
+            mainContent.innerHTML = `
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/2"><img alt="${product.alt || product.name}" class="w-full rounded-lg shadow-lg" src="${product.image}"/></div>
+                    <div class="md:w-1/2">
+                        <h1 class="text-4xl font-bold">${product.name}</h1>
+                        <p class="text-3xl font-bold text-pink-600 my-4">${formatPrice(product.price)}</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">${product.description}</p>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-1/2">
+                                <label for="size-select" class="block text-sm font-medium text-gray-700">Size</label>
+                                <select id="size-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">${sizeOptions}</select>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="color-select" class="block text-sm font-medium text-gray-700">Color</label>
+                                <select id="color-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm">${colorOptions}</select>
+                            </div>
+                        </div>
+                        <button class="w-full bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition add-to-cart-btn-detail" data-id="${product.id}">Add to Cart</button>
+                        <div class="mt-10">
+                            <h3 class="text-2xl font-bold mb-4">Reviews</h3>
+                            <div id="reviews-container" class="space-y-4"></div>
+                            <form id="review-form" class="mt-6 ${currentUser ? '' : 'hidden'}">
+                                <div class="flex items-center mb-2" id="star-rating-input">
+                                    <i class="far fa-star text-2xl text-gray-400 cursor-pointer" data-value="1"></i><i class="far fa-star text-2xl text-gray-400 cursor-pointer" data-value="2"></i><i class="far fa-star text-2xl text-gray-400 cursor-pointer" data-value="3"></i><i class="far fa-star text-2xl text-gray-400 cursor-pointer" data-value="4"></i><i class="far fa-star text-2xl text-gray-400 cursor-pointer" data-value="5"></i>
+                                </div>
+                                <input type="hidden" id="rating-value" value="0">
+                                <textarea id="review-text" class="w-full border rounded-md p-2" placeholder="Write your review..." required></textarea>
+                                <button type="submit" class="mt-2 bg-pink-600 text-white px-4 py-2 rounded-md">Submit Review</button>
+                            </form>
+                            <p id="login-for-review" class="${currentUser ? 'hidden' : ''}">Please <a href="#" id="login-link" class="text-pink-600">login</a> to write a review.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            attachDynamicListeners();
+            
+            // Load and display reviews
+            const reviewsContainer = document.getElementById('reviews-container');
+            const q = query(collection(db, "products", productId, "reviews"));
+            onSnapshot(q, (querySnapshot) => {
+                reviewsContainer.innerHTML = '';
+                if(querySnapshot.empty) {
+                    reviewsContainer.innerHTML = '<p class="text-gray-500">No reviews yet. Be the first to review!</p>';
+                }
+                querySnapshot.forEach((doc) => {
+                    const review = doc.data();
+                    const reviewEl = document.createElement('div');
+                    reviewEl.className = 'border-b pb-2';
+                    reviewEl.innerHTML = `
+                        <div class="flex items-center mb-1">${createStarRating(review.rating, 0)}</div>
+                        <p><strong>${review.userEmail.split('@')[0]}</strong></p>
+                        <p>${review.text}</p>
+                    `;
+                    reviewsContainer.appendChild(reviewEl);
+                });
+            });
+        }
+        
+        function renderCart() {
+            currentRoute = { page: 'cart' };
+            if (cart.length === 0) {
+                mainContent.innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-3xl font-semibold mb-4">Your Cart is Empty</h2>
+                        <button id="continue-shopping-btn" class="bg-pink-600 text-white px-6 py-3 rounded-md hover:bg-pink-700 transition cursor-pointer">Continue Shopping</button>
+                    </div>
+                `;
+                document.getElementById('continue-shopping-btn').addEventListener('click', renderHome);
+                updateCartCount();
+                return;
+            }
+
+            let totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            mainContent.innerHTML = `
+                <h2 class="text-3xl font-semibold mb-6">Shopping Cart</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border border-gray-300 rounded-md">
+                        <thead class="bg-pink-600 text-white">
+                            <tr><th class="p-3">Product</th><th class="p-3">Size</th><th class="p-3">Color</th><th class="p-3">Price</th><th class="p-3">Quantity</th><th class="p-3">Total</th><th class="p-3">Remove</th></tr>
+                        </thead>
+                        <tbody>
+                            ${cart.map((item, idx) => `
+                                <tr class="border-t border-gray-300">
+                                    <td class="p-3 flex items-center space-x-4"><img alt="${item.alt}" class="w-16 h-16 object-cover rounded" src="${item.image}" width="64" height="64"/><span>${item.name}</span></td>
+                                    <td class="p-3">${item.size}</td><td class="p-3">${item.color}</td><td class="p-3">${formatPrice(item.price)}</td>
+                                    <td class="p-3"><input type="number" min="1" value="${item.quantity}" data-idx="${idx}" class="quantity-input border border-gray-300 rounded px-2 py-1 w-16"/></td>
+                                    <td class="p-3">${formatPrice(item.price * item.quantity)}</td>
+                                    <td class="p-3 text-center"><button data-idx="${idx}" class="remove-item-btn text-red-600 hover:text-red-800"><i class="fas fa-trash-alt"></i></button></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div class="text-xl font-semibold">Total: ${formatPrice(totalPrice)}</div>
+                    <button id="proceed-checkout-btn" class="bg-pink-600 text-white px-6 py-3 rounded-md hover:bg-pink-700 transition cursor-pointer">Proceed to Checkout</button>
+                </div>
+            `;
+            attachDynamicListeners();
+            updateCartCount();
+        }
+
+      function renderCheckout() {
+    currentRoute = { page: 'checkout' };
+    if (cart.length === 0) { renderCart(); return; }
+    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    mainContent.innerHTML = `
+        <h2 class="text-3xl font-bold mb-8">Checkout</h2>
+        <form id="checkout-form" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-6">Shipping Details</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <div>
+                        <label class="block text-sm font-medium">Full Name</label>
+                        <input type="text" id="full-name" name="fullName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" value="${currentUser ? currentUser.email.split('@')[0] : ''}">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium">Email</label>
+                         <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" value="${currentUser ? currentUser.email : ''}">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium">Street Address</label>
+                         <input type="text" id="address" name="address" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium">City</label>
+                         <input type="text" id="city" name="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">State</label>
+                         <input type="text" id="state" name="state" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Zip Code</label>
+                         <input type="text" id="zip" name="zip" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Phone</label>
+                         <input type="tel" id="phone" name="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-1 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-6">Order Summary</h3>
+                <div class="space-y-2 text-sm">${cart.map(item => `<div class="flex justify-between"><span>${item.name} x ${item.quantity}</span><span>${formatPrice(item.price*item.quantity)}</span></div>`).join('')}</div>
+                <div class="flex justify-between font-bold text-lg mt-4 pt-4 border-t"><span>Total</span><span>${formatPrice(totalPrice)}</span></div>
+                <button type="submit" form="checkout-form" class="w-full mt-6 bg-pink-600 text-white py-3 rounded-md font-semibold hover:bg-pink-700 transition">Confirm Order</button>
+            </div>
+        </form>`;
+    
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            if (!checkoutForm.checkValidity()) {
+                checkoutForm.reportValidity();
+                return;
+            }
+
+            const submitButton = checkoutForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+
+            // --- THIS PART IS FIXED ---
+            // Now correctly collecting all values using their new IDs
+            const orderDetails = {
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                zip: document.getElementById('zip').value,
+                phone: document.getElementById('phone').value,
+                paymentMethod: 'Online', // Added a default payment method
+                cart: cart,
+                total: totalPrice
+            };
+
+            await submitOrder(orderDetails);
+            
+            // Re-enable the button in case submission fails
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Confirm Order';
+        });
+    }
+}
+        
+        function renderThankYou(orderId) {
+            currentRoute = { page: 'thankyou' };
+             mainContent.innerHTML = `
+                <div class="text-center py-20 max-w-xl mx-auto">
+                    <h2 class="text-4xl font-bold text-pink-600 mb-4">Thank You for Your Order!</h2>
+                    <p class="text-lg mb-6">Your order has been confirmed. Your Order ID is <span class="font-semibold">${orderId}</span>.</p>
+                    <button id="continue-shopping-btn" class="bg-pink-600 text-white px-6 py-3 rounded-md hover:bg-pink-700 transition">Continue Shopping</button>
+                </div>
+            `;
+            document.getElementById('continue-shopping-btn').addEventListener('click', () => {
+                cart = [];
+                updateCartCount();
+                renderHome();
+            });
+        }
+
+        function renderLogin() {
+            currentRoute = { page: 'login' };
+            mainContent.innerHTML = `
+                <div class="max-w-md mx-auto mt-10">
+                    <form id="login-form" class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+                        <div id="login-error" class="text-red-500 text-center mb-4"></div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Email</label>
+                            <input type="email" id="login-email" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700">Password</label>
+                            <input type="password" id="login-password" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <button type="submit" class="w-full bg-pink-600 text-white py-2 rounded-md">Login</button>
+                        <p class="text-center mt-4">Don't have an account? <a href="#" id="show-register" class="text-pink-600">Register</a></p>
+                    </form>
+                    <form id="register-form" class="bg-white p-8 rounded-lg shadow-md hidden">
+                        <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+                        <div id="register-error" class="text-red-500 text-center mb-4"></div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Email</label>
+                            <input type="email" id="register-email" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700">Password</label>
+                            <input type="password" id="register-password" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <button type="submit" class="w-full bg-pink-600 text-white py-2 rounded-md">Register</button>
+                        <p class="text-center mt-4">Already have an account? <a href="#" id="show-login" class="text-pink-600">Login</a></p>
+                    </form>
+                </div>
+            `;
+            attachDynamicListeners();
+        }
+
+        function renderAbout() {
+            currentRoute = { page: 'about' };
+             mainContent.innerHTML = `
+                <h2 class="text-3xl font-semibold mb-6">About Us</h2>
+                <p class="mb-4 max-w-3xl text-gray-700 leading-relaxed">
+                    Panwar&Son's is India's leading fashion e-commerce platform, offering a wide range of clothing, footwear, accessories, and lifestyle products. Our mission is to bring the latest trends and styles to your doorstep with convenience and trust.
+                </p>
+                <p class="mb-4 max-w-3xl text-gray-700 leading-relaxed">
+                    We partner with top brands and designers to provide you with quality products at competitive prices. Customer satisfaction and seamless shopping experience are our top priorities.
+                </p>
+            `;
+        }
+        
+        function renderContact() {
+            currentRoute = { page: 'contact' };
+            mainContent.innerHTML = `
+                <h2 class="text-3xl font-semibold mb-6">Contact Us</h2>
+                <form id="contact-form" class="max-w-3xl mx-auto space-y-6" novalidate>
+                    <div><label for="contact-name" class="block font-semibold mb-1">Name</label><input type="text" id="contact-name" required class="w-full border border-gray-300 rounded-md px-3 py-2"/></div>
+                    <div><label for="contact-email" class="block font-semibold mb-1">Email</label><input type="email" id="contact-email" required class="w-full border border-gray-300 rounded-md px-3 py-2"/></div>
+                    <div><label for="contact-message" class="block font-semibold mb-1">Message</label><textarea id="contact-message" rows="5" required class="w-full border border-gray-300 rounded-md px-3 py-2"></textarea></div>
+                    <button type="submit" class="bg-pink-600 text-white px-6 py-3 rounded-md hover:bg-pink-700">Send Message</button>
+                </form>
+            `;
+            attachDynamicListeners();
+        }
+
+        function renderSearchResults(query, results) {
+            currentRoute = { page: 'search', params: query };
+            mainContent.innerHTML = `
+                <h2 class="text-3xl font-semibold mb-6">Search Results for "${query}"</h2>
+                ${results.length === 0 ? `<p class="text-gray-700">No products found.</p>` : `
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        ${results.map(p => `
+                            <article class="product-card cursor-pointer border rounded-lg" data-id="${p.id}">
+                               <img alt="${p.alt || p.name}" class="w-full h-64 object-cover" src="${p.image}"/>
+                                <div class="p-4">
+                                    <h3>${p.name}</h3><p>${formatPrice(p.price)}</p>
+                                    <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
+                                </div>
+                            </article>
+                        `).join('')}
+                    </div>
+                `}
+            `;
+            attachDynamicListeners();
+        }
+        
+        function renderAdminDashboard() {
+            currentRoute = { page: 'admin' };
+            mainContent.innerHTML = `
+                <h2 class="text-3xl font-bold mb-8">Admin Dashboard</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Add New Product</h3>
+                        <form id="add-product-form" class="space-y-4">
+                            <input type="text" id="product-name" placeholder="Product Name" class="w-full border p-2 rounded" required>
+                            <input type="number" id="product-price" placeholder="Price" class="w-full border p-2 rounded" required>
+                            <input type="text" id="product-image" placeholder="Image URL" class="w-full border p-2 rounded" required>
+                            <input type="text" id="product-category" placeholder="Category (e.g., Men)" class="w-full border p-2 rounded" required>
+                            <input type="text" id="product-sizes" placeholder="Sizes (comma-separated)" class="w-full border p-2 rounded">
+                            <input type="text" id="product-colors" placeholder="Colors (comma-separated)" class="w-full border p-2 rounded">
+                            <textarea id="product-description" placeholder="Description" class="w-full border p-2 rounded" required></textarea>
+                            <button type="submit" class="w-full bg-pink-600 text-white py-2 rounded-md">Add Product</button>
+                        </form>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Manage Products</h3>
+                        <div id="admin-products-list" class="space-y-4"></div>
+                    </div>
+                </div>
+            `;
+
+            const adminProductsList = document.getElementById('admin-products-list');
+            onSnapshot(query(collection(db, "products")), (snapshot) => {
+                adminProductsList.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const product = { id: doc.id, ...doc.data() };
+                    const productEl = document.createElement('div');
+                    productEl.className = 'flex justify-between items-center border-b pb-2';
+                    productEl.innerHTML = `
+                        <span>${product.name}</span>
+                        <button class="text-red-500 hover:text-red-700 delete-product-btn" data-id="${product.id}">Delete</button>
+                    `;
+                    adminProductsList.appendChild(productEl);
+                });
+                document.querySelectorAll('.delete-product-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        if(confirm('Are you sure you want to delete this product?')) {
+                           await deleteDoc(doc(db, "products", e.target.dataset.id));
+                        }
+                    });
+                });
+            });
+
+            document.getElementById('add-product-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await addDoc(collection(db, "products"), {
+                    name: document.getElementById('product-name').value,
+                    price: parseFloat(document.getElementById('product-price').value),
+                    image: document.getElementById('product-image').value,
+                    category: document.getElementById('product-category').value,
+                    description: document.getElementById('product-description').value,
+                    sizes: document.getElementById('product-sizes').value.split(',').map(s => s.trim()),
+                    colors: document.getElementById('product-colors').value.split(',').map(c => c.trim()),
+                    rating: 0, reviews: 0,
+                });
+                e.target.reset();
+            });
+        }
+        
+        function render404() {
+             mainContent.innerHTML = `
+                <div class="text-center py-20">
+                    <h2 class="text-6xl font-bold text-pink-600 mb-4">404</h2>
+                    <p class="text-2xl mb-6">Page Not Found</p>
+                    <button id="back-home-btn" class="bg-pink-600 text-white px-6 py-3 rounded-md">Back to Home</button>
+                </div>
+            `;
+            document.getElementById('back-home-btn').addEventListener('click', renderHome);
+        }
+
+        // --- GOOGLE SHEET SUBMISSION ---
+      async function submitOrder(orderDetails) {
+    const orderId = 'PNS' + Date.now();
+    // PASTE YOUR NEW URL FROM STEP 2 HERE
+    const formEndpoint = 'https://script.google.com/macros/s/AKfycbwbojGnpFoVfEXnfL5Z0-HXZLvPYmYMS_mdqT-PjvUheMwxd82ztLhZ33l1aUOR7_pGCA/exec'; 
+
+    const submissionData = {
+    'Order ID': orderId,
+    'Customer Name': orderDetails.fullName,
+    'Email': orderDetails.email,
+    'Phone': orderDetails.phone,
+    'Shipping Address': `${orderDetails.address}, ${orderDetails.city}, ${orderDetails.state} - ${orderDetails.zip}`,
+    'Payment Method': orderDetails.paymentMethod,
+    'Total Amount': formatPrice(orderDetails.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)),
+    'Items': orderDetails.cart.map(item => `- ${item.name} (Size: ${item.size}, Color: ${item.color}) x ${item.quantity}`).join('\n'),
+};
+
+    try {
+        // We send the data and now we can properly wait for a response
+        const response = await fetch(formEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8', // Use text/plain for this method
+            },
+            body: JSON.stringify(submissionData),
+        });
+        
+        const result = await response.json();
+
+        if (result.result === 'success') {
+            renderThankYou(orderId);
+            return true;
+        } else {
+            console.error('Submission failed:', result.message);
+            showToast('Order could not be submitted. Please try again.', true);
+            return false;
+        }
+
+    } catch (error) {
+        console.error('Error submitting order:', error);
+        showToast('Could not send order details. Please check your internet connection.', true);
+        return false;
+    }
+}
+        // --- EVENT LISTENER ATTACHMENT ---
+        function attachDynamicListeners() {
+            // Product cards (view details)
+            document.querySelectorAll('.product-card').forEach(card => {
+                if(card.dataset.listener) return;
+                card.dataset.listener = true;
+                card.addEventListener('click', e => {
+                    if (e.target.closest('.add-to-cart-btn')) return;
+                    renderProduct(card.dataset.id);
+                });
+            });
+
+            // Add to cart from product cards
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                if(btn.dataset.listener) return;
+                btn.dataset.listener = true;
+                btn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    const product = allProducts.find(p => p.id === btn.dataset.id);
+                    if (!product) return;
+                    const size = product.sizes && product.sizes.length > 0 ? product.sizes[0] : 'N/A';
+                    const color = product.colors && product.colors.length > 0 ? product.colors[0] : 'N/A';
+                    addToCart(product.id, size, color, 1);
+                    alert(`${product.name} added to cart!`);
+                });
+            });
+            
+            // Category links on home page
+            document.querySelectorAll('.category-item').forEach(el => el.addEventListener('click', () => renderShop(el.dataset.category)));
+            
+            // Home page hero button
+            const heroBtn = document.getElementById('hero-shop-now');
+            if(heroBtn) heroBtn.addEventListener('click', () => renderShop(null));
+
+            // Product Detail Page: Add to Cart
+            const detailBtn = document.querySelector('.add-to-cart-btn-detail');
+            if(detailBtn) detailBtn.addEventListener('click', e => {
+                const size = document.getElementById('size-select').value;
+                const color = document.getElementById('color-select').value;
+                addToCart(e.currentTarget.dataset.id, size, color, 1);
+                alert('Product added to cart!');
+            });
+            
+            // Product Detail Page: Review Form
+            const reviewForm = document.getElementById('review-form');
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', async e => {
+                    e.preventDefault();
+                    const rating = parseInt(document.getElementById('rating-value').value);
+                    if (rating === 0) { alert('Please select a star rating.'); return; }
+                    await addDoc(collection(db, "products", currentRoute.params, "reviews"), {
+                        text: document.getElementById('review-text').value,
+                        rating: rating,
+                        userEmail: currentUser.email,
+                        createdAt: serverTimestamp()
+                    });
+                    reviewForm.reset();
+                    // Update aggregate rating on product
+                    const reviewsRef = collection(db, "products", currentRoute.params, "reviews");
+                    const snapshot = await getDocs(reviewsRef);
+                    let totalRating = 0;
+                    snapshot.forEach(doc => totalRating += doc.data().rating);
+                    const avgRating = snapshot.size > 0 ? totalRating / snapshot.size : 0;
+                    await updateDoc(doc(db, "products", currentRoute.params), {
+                        rating: avgRating,
+                        reviews: snapshot.size
+                    });
+                });
+                
+                const stars = document.querySelectorAll('#star-rating-input i');
+                stars.forEach(star => {
+                    star.addEventListener('mouseover', () => {
+                        stars.forEach(s => {
+                            s.classList.toggle('fas', s.dataset.value <= star.dataset.value);
+                            s.classList.toggle('far', s.dataset.value > star.dataset.value);
+                        });
+                    });
+                    star.addEventListener('mouseout', () => {
+                        const val = document.getElementById('rating-value').value;
+                        stars.forEach(s => {
+                            s.classList.toggle('fas', s.dataset.value <= val);
+                            s.classList.toggle('far', s.dataset.value > val);
+                        });
+                    });
+                    star.addEventListener('click', () => document.getElementById('rating-value').value = star.dataset.value);
+                });
+                 document.getElementById('login-link')?.addEventListener('click', e => { e.preventDefault(); renderLogin(); });
+            }
+
+            // Cart Page Listeners
+            document.querySelectorAll('.quantity-input').forEach(input => input.addEventListener('change', e => {
+                cart[parseInt(e.target.dataset.idx)].quantity = parseInt(e.target.value) < 1 ? 1 : parseInt(e.target.value);
+                renderCart();
+            }));
+            document.querySelectorAll('.remove-item-btn').forEach(btn => btn.addEventListener('click', e => {
+                cart.splice(parseInt(e.currentTarget.dataset.idx), 1);
+                renderCart();
+            }));
+            document.getElementById('proceed-checkout-btn')?.addEventListener('click', renderCheckout);
+            
+            // Contact Page
+            document.getElementById('contact-form')?.addEventListener('submit', e => {
+                e.preventDefault();
+                alert('Thank you for your message!');
+                e.target.reset();
+            });
+
+            // Login/Register Page
+            document.getElementById('show-register')?.addEventListener('click', e => {
+                e.preventDefault();
+                document.getElementById('login-form').classList.add('hidden');
+                document.getElementById('register-form').classList.remove('hidden');
+            });
+            document.getElementById('show-login')?.addEventListener('click', e => {
+                e.preventDefault();
+                document.getElementById('register-form').classList.add('hidden');
+                document.getElementById('login-form').classList.remove('hidden');
+            });
+            document.getElementById('login-form')?.addEventListener('submit', e => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const pass = document.getElementById('login-password').value;
+                signInWithEmailAndPassword(auth, email, pass)
+                    .then(() => renderHome())
+                    .catch(err => document.getElementById('login-error').textContent = err.message);
+            });
+            document.getElementById('register-form')?.addEventListener('submit', e => {
+                e.preventDefault();
+                const email = document.getElementById('register-email').value;
+                const pass = document.getElementById('register-password').value;
+                createUserWithEmailAndPassword(auth, email, pass)
+                    .then(() => renderHome())
+                    .catch(err => document.getElementById('register-error').textContent = err.message);
+            });
+        }
+
+        function setupStaticListeners() {
+            // Navigation
+            const navActions = {
+                'nav-home': renderHome, 'nav-home-desktop': renderHome, 'nav-home-mobile': renderHome,
+                'nav-shop-desktop': () => renderShop(null), 'nav-shop-mobile': () => renderShop(null),
+                'nav-about-desktop': renderAbout, 'nav-about-mobile': renderAbout,
+                'nav-contact-desktop': renderContact, 'nav-contact-mobile': renderContact,
+                'nav-login-desktop': renderLogin, 'nav-login-mobile': renderLogin,
+                'nav-cart': renderCart,
+                'nav-admin-desktop': renderAdminDashboard,
+                'footer-logo': renderHome, 'footer-our-story': renderAbout,
+                'footer-careers': () => alert("Careers page coming soon!"),
+                'footer-customer-service': () => alert("Customer Service page coming soon!"),
+                'footer-returns': () => alert("Returns & Refunds page coming soon!"),
+            };
+
+            Object.keys(navActions).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('click', e => {
+                    e.preventDefault();
+                    navActions[id]();
+                    if (id.endsWith('-mobile')) toggleMobileMenu(false);
+                });
+            });
+
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', () => { signOut(auth); });
+
+            // Search
+            const performSearch = () => {
+                const query = document.getElementById('search-input').value.trim();
+                if(!query) return;
+                const results = allProducts.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+                renderSearchResults(query, results);
+            };
+            document.getElementById('search-button').addEventListener('click', performSearch);
+            document.getElementById('search-input').addEventListener('keydown', e => e.key === 'Enter' && performSearch());
+            
+            const performMobileSearch = () => {
+                const query = document.getElementById('mobile-search-input').value.trim();
+                if(!query) return;
+                const results = allProducts.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+                renderSearchResults(query, results);
+                toggleMobileMenu(false);
+            };
+            document.getElementById('mobile-search-button').addEventListener('click', performMobileSearch);
+            document.getElementById('mobile-search-input').addEventListener('keydown', e => e.key === 'Enter' && performMobileSearch());
+
+            // Mobile Menu Toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', () => toggleMobileMenu());
+        }
+
+        // --- INITIALIZATION ---
+        function init() {
+            setupStaticListeners();
+            
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                updateUserDisplay(user);
+                // Re-render current page if user state affects it (e.g., review form)
+                if (currentRoute.page === 'product') {      
+                    renderProduct(currentRoute.params);
+                }
+            });
+            
+            onSnapshot(collection(db, "products"), (snapshot) => {
+                allProducts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                // Re-render current page to reflect any product data changes
+                switch(currentRoute.page) {
+                    case 'home': renderHome(); break;
+                    case 'shop': renderShop(currentRoute.params); break;
+                    case 'product': renderProduct(currentRoute.params); break;
+                    default: renderHome(); // Fallback to home on first load
+                }
+            });
+        }   
+
+        window.onload = init;
+    </script>
+</body>
+</html>
